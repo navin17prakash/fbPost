@@ -1,55 +1,31 @@
-var FB = require('fb');
-var status;
-
- var initFucntion= function(key){
-	 
-	 var accessToken = key;
-	 FB.setAccessToken(accessToken);
+var graph=require('fbgraph');
+var ACCESS_TOKEN;
+ 
+ 
+var initFucntion= function(key){
+	 ACCESS_TOKEN=key;
+	 graph.setAccessToken(ACCESS_TOKEN);
  }
  
- var startPost = function(imageURL,description)
+ var startPost = function()
  {
-	//starts posting
-     FB.api('', 'post', {
-    batch: [
-        { method: 'post', relative_url: 'me/feed', body:description + encodeURIComponent(imageURL) }
-    ]
-}, function (res) {
-    var res0;
- 
-    if(!res || res.error) {
-        console.log(!res ? 'error occurred' : res.error);
-		status =false;
-        return;
-    }
- 
-    res0 = JSON.parse(res[0].body);
- 
-    if(res0.error) {
-        console.log(res0.error);
-    } else {
-        console.log('Post Id: ' + res0.id);
-		status = true;
-    }
+     var optionsJSON ={
+	 url : "http://www.dmuth.org/files/nodejs-dark.png",
+	 caption: "caption testing"
+ };
+    graph.post("/photos", optionsJSON, function(err, res) {
+  // returns the post id 
+
+  console.log(res); // { id: xxxxx} 
 });
+  }
 
-}
- var checkStatus =function()
- {
-     if(status)
-        console.log ("successfully posted to wall");
-       else
-       console.log("Failed in posting.");
- }
- var postToFB =function(key,imageURL,desc)
+ var postToFB =function(key)
  {
      // initalized the access key. Could also be used for other initialization activities
      initFucntion(key);
      //starts the actual posting process
-     startPost(imageURL,desc);
-     //logs the final status message. Could be modified to write to a log file with timestamp
-     checkStatus();
-     
+     startPost();
  }
- module.export.postToFB = postToFB;
+ postToFB('pass the acccess token here ');
  
