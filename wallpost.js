@@ -9,7 +9,8 @@ var status;
  
  var startPost = function(imageURL,description)
  {
-	 FB.api('', 'post', {
+	//starts posting
+     FB.api('', 'post', {
     batch: [
         { method: 'post', relative_url: 'me/feed', body:description + encodeURIComponent(imageURL) }
     ]
