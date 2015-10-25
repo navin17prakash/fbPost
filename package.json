@@ -1,0 +1,14 @@
+{
+  "name": "imagepost",
+  "version": "0.0.1",
+  "description": "this node module can post images with description to FB wall when triggered from the backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Navin Prakash",
+  "license": "ISC",
+  "dependencies": {
+    "fb": "^0.7.3"
+  }
+}
