@@ -13,11 +13,11 @@ Pre-Requisites.
 
 Usage
 You need to have a JSON input structure ready like this
-	var InputJSON ={
+	```var InputJSON ={
     URL : 'Place the image URL here',
     caption : "put the caption for the image here",
     ACCESS_TOKEN :'PLACE THE ACQUIRED FB ACCCESS TOKEN HERE'  
-	};
+	};```
 
 The JSON provides the flexibility for the input to be provided so that automated Backends can use it for posting images.
 The JSON could be framed in runtime, and passed to the function post() function of master.js file. 
