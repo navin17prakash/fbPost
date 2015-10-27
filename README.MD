@@ -13,8 +13,6 @@ Pre-Requisites.
 
 Usage
 You need to have a JSON input structure ready like this
-	
-
 	```var InputJSON ={
     URL : 'Place the image URL here',
     caption : "put the caption for the image here",
